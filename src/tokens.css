@@ -1,0 +1,48 @@
+/* src/tokens.css */
+
+/* 1. Light mode (default) */
+:root {
+  --background: var(--color-stone-100);
+  --background-alt: var(--color-white);
+  --text-primary: var(--color-stone-900);
+  --text-secondary: var(--color-stone-600);
+  --text-brand: var(--color-emerald-800);
+  --text-white: var(--color-white);
+  --foreground: var(--color-stone-900);
+  --primary: var(--color-emerald-800);
+  --primary-foreground: var(--color-white);
+  --border: var(--color-stone-200);
+}
+
+/* 2. Dark mode */
+.dark {
+  --background: var(--color-stone-800);
+  --background-alt: var(--color-stone-950);
+  --text-primary: var(--color-stone-100);
+  --text-secondary: var(--color-stone-400);
+  --text-brand: var(--color-emerald-400);
+  --text-white: var(--color-white);
+  --foreground: var(--color-stone-100);
+  --primary: var(--color-emerald-50);
+  --primary-foreground: var(--color-emerald-800);
+  --border: var(--color-stone-800);
+}
+
+/* 3. Expose tokens to Tailwind */
+@theme inline {
+  --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-brand: var(--text-brand);
+  --color-text-white: var(--text-white);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-border: var(--border);
+}
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}

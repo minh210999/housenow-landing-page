@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import "tailwindcss";
+@import "./tokens.css";
+
+@theme {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@keyframes reveal-left {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+    /* clip-path: inset(0 15% 0 0 round 0.25rem); */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    /* clip-path: inset(0 0 0 0 round 0.25rem); */
+  }
+}
+
+@utility reveal-left {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: reveal-left linear both;
+      animation-timeline: view();
+      animation-range: var(--reveal-range, entry 10% cover 35%);
+    }
+  }
+}
+
+@keyframes reveal-right {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+    /* clip-path: inset(0 15% 0 0 round 0.25rem); */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    /* clip-path: inset(0 0 0 0 round 0.25rem); */
+  }
+}
+
+@utility reveal-right {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: reveal-right linear both;
+      animation-timeline: view();
+      animation-range: var(--reveal-range, entry 15% cover 35%);
+    }
+  }
+}
+
+@keyframes reveal-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    /* clip-path: inset(0 15% 0 0 round 0.25rem); */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    /* clip-path: inset(0 0 0 0 round 0.25rem); */
+  }
+}
+
+@utility reveal-bottom {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: reveal-bottom linear both;
+      animation-timeline: view();
+      animation-range: var(--reveal-range, entry 20% cover 30%);
+    }
+  }
+}
+
+@keyframes parallax {
+  from {
+    transform: translateY(var(--parallax-from, 0%));
+  }
+  to {
+    transform: translateY(var(--parallax-to, 15%));
+  }
+}
+
+.parallax {
+  animation-name: parallax;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-timeline: scroll(root);
+  animation-range: 0 700px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax {
+    animation: none;
+  }
+}
